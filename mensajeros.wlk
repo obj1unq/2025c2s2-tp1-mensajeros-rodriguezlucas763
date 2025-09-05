@@ -1,4 +1,3 @@
-import wollok.vm.*
 /*
 - El paquete debe estar pagado para poder ser entregado.
 - En el ejemplo lo está, pero no siempre podria ser asi.
