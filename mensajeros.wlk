@@ -20,14 +20,14 @@ object puenteDeBrooklyn {
   const pesoLimite = 1000
 
   method puedePasar(persona) {
-	return persona.peso() <= pesoLimite
+	  return persona.peso() <= pesoLimite
   }
 }
 
 object laMatrix {
 	
   method puedePasar(persona) {
-	return persona.puedeLlamar()
+	  return persona.puedeLlamar()
   }
 }
 
@@ -36,11 +36,11 @@ object jeanGray {
   const peso        = 65
 
   method peso() {
-	return peso
+	  return peso
   }
 
   method puedeLlamar() {
-	return puedeLlamar
+    return puedeLlamar
   }
 }
 
@@ -50,13 +50,13 @@ object neo {
   const peso         = 0
 
   method peso() {
-	return peso
+	  return peso
   }
   method puedeLlamar() {
-	return puedeLlamar
+	  return puedeLlamar
   }
   method tieneCredito() {
-	return tieneCredito
+	  return tieneCredito
   }
 }
 
@@ -65,13 +65,13 @@ object saraConnor {
   var   peso         = 0
 
   method peso(){
-	return peso
+	  return peso
   }
   method puedeLlamar() {
-	return puedeLlamar
+	  return puedeLlamar
   }
   method peso(pesoPropio, vehiculo) {
-	peso =  pesoPropio + vehiculo.peso()
+	  peso = pesoPropio + vehiculo.peso()
 	      
   }
 
@@ -81,26 +81,33 @@ object paquete {
   var estaPagado = true
 
   method pagar() {
-	estaPagado = true
+	  estaPagado = true
+  }
+  method noPagar() {
+    estaPagado = false
   }
   method estaPagado() {
-	return estaPagado
+	  return estaPagado
   }
   method puedeSerEntregadoEn_Por_(destino, persona) {
-	if (estaPagado) {
-		destino.puedePasar(persona)
-	}
-	else {
-		return "El paquete no está pagado."
-	}
+	  if (estaPagado) {
+		  return destino.puedePasar(persona)
+	  }
+	  else {
+		  return false
+	  }
   }
 }
 
 object camion {
   const peso = 500
+  var cantAcoplados = 0
 
-  method peso(cantAcoplados) {
-	return peso + cantAcoplados * 500
+  method peso() {
+	  return peso + cantAcoplados * 500
+  }
+  method cantAcoplados(cantidad) {
+    cantAcoplados = cantidad
   }
 }
 
@@ -108,6 +115,6 @@ object moto {
   const peso = 100
 
   method peso() {
-	return peso
+	  return peso
   }
 }

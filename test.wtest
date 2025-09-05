@@ -1,0 +1,21 @@
+import mensajeros.*
+
+describe "Mensajeros de Pelicula" {
+  test "No está pago, no puede ser llevado por Neo a la Matrix" {
+    paquete.noPagar()
+    assert.equals(paquete.puedeSerEntregadoEn_Por_(laMatrix, neo), false)
+  }
+  test "Está pago, puede ser llevado por Jean a la Matrix" {
+    assert.equals(paquete.puedeSerEntregadoEn_Por_(laMatrix, jeanGray), true)
+  }
+  test "está pago no puede ser llevado por Sara (que pesa 70kg) 
+        a Brooklyn si es que utiliza un camión con un acoplado ." {
+    camion.cantAcoplados(1)
+    saraConnor.peso(70, camion)
+    assert.equals(paquete.puedeSerEntregadoEn_Por_(puenteDeBrooklyn, saraConnor), false)
+  }
+  test "La entrega anterior puede hacerse si Sara usa una moto" {
+    saraConnor.peso(70, moto)
+    assert.equals(paquete.puedeSerEntregadoEn_Por_(puenteDeBrooklyn, saraConnor), true)
+  }
+}
